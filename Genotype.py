@@ -16,13 +16,21 @@ class Genotype:
         
         return couplings
     
-    def __convertPair(inputPair):
+    def __convertPair(inputPair, letter = "X"):
         if inputPair in ["rr", "yy", "ww"]:
             return "0"
         elif inputPair in ["Rr", "Yy", "Ww", "rR", "yY", "wW"]:
             return "1"
         elif inputPair in ["RR", "YY", "WW"]:
             return "2"
+        elif inputPair == "0":
+            return letter.lower() + letter.lower()
+        elif inputPair == "1":
+            return letter.upper() + letter.lower()
+        elif inputPair == "2":
+            return letter.upper() + letter.upper()
+        else:
+            return -1
 
     @classmethod
     def convertToNumeric(self, genotype):
