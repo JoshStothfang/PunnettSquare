@@ -17,5 +17,8 @@ for coupling1 in parent1.couplings:
     for coupling2 in parent2.couplings:
         children.append(breed(coupling1, coupling2))
 
-print(children)
-print(len(children))
+numericChildren = []
+
+for child in children:
+    numericChildren.append(Genotype.convertToNumeric(child))
+    
