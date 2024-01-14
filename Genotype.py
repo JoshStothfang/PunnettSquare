@@ -15,3 +15,15 @@ class Genotype:
             couplings.append(coupling)
         
         return couplings
+    
+    def __convertPair(inputPair):
+        if inputPair in ["rr", "yy", "ww"]:
+            return "0"
+        elif inputPair in ["Rr", "Yy", "Ww", "rR", "yY", "wW"]:
+            return "1"
+        elif inputPair in ["RR", "YY", "WW"]:
+            return "2"
+
+    @classmethod
+    def convertToNumeric(self, genotype):
+        return self.__convertPair(genotype[0:2]) + " - " + self.__convertPair(genotype[2:4]) + " - " + self.__convertPair(genotype[4:])
