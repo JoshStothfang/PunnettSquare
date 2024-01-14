@@ -35,3 +35,7 @@ class Genotype:
     @classmethod
     def convertToNumeric(self, genotype):
         return self.__convertPair(genotype[0:2]) + " - " + self.__convertPair(genotype[2:4]) + " - " + self.__convertPair(genotype[4:])
+    
+    @classmethod
+    def convertToGenotype(self, numeric):
+        return self.__convertPair(numeric[0:1], "R") + self.__convertPair(numeric[4:5], "Y") + self.__convertPair(numeric[8:], "W")
