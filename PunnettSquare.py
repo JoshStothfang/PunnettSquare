@@ -2,8 +2,8 @@ import sys
 from Genotype import Genotype
 from collections import Counter
 
-parent1 = Genotype("RrYyWw")
-parent2 = Genotype("RRYYWW")
+parent1 = Genotype(sys.argv[1])
+parent2 = Genotype(sys.argv[2])
 
 children = []
 
