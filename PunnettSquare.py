@@ -1,5 +1,6 @@
 import sys
 from Genotype import Genotype
+from collections import Counter
 
 parent1 = Genotype("RrYyWw")
 parent2 = Genotype("RRYYWW")
@@ -21,4 +22,13 @@ numericChildren = []
 
 for child in children:
     numericChildren.append(Genotype.convertToNumeric(child))
-    
+
+outputTuples = []
+
+for numericChild in list(Counter(numericChildren)):
+    genotypeChild = Genotype.convertToGenotype(numericChild)
+    percentage = (Counter(numericChildren).get(numericChild))/64
+    outputTuples.append((numericChild, genotypeChild, percentage))
+
+for num, geno, percent in outputTuples:
+    print(num, geno, percent)
