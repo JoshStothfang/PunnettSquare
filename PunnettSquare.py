@@ -30,5 +30,5 @@ for numericChild in list(Counter(numericChildren)):
     percentage = (Counter(numericChildren).get(numericChild))/64
     outputTuples.append((numericChild, genotypeChild, percentage))
 
-for num, geno, percent in outputTuples:
-    print(num, geno, percent)
+for _, geno, percent in outputTuples:
+    print(str(percent * 100) + "%", geno)
