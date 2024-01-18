@@ -28,7 +28,9 @@ outputTuples = []
 for numericChild in list(Counter(numericChildren)):
     genotypeChild = Genotype.convertToGenotype(numericChild)
     percentage = (Counter(numericChildren).get(numericChild))/64
-    outputTuples.append((numericChild, genotypeChild, percentage))
+    outputTuples.append((percentage, genotypeChild, numericChild))
 
-for _, geno, percent in outputTuples:
-    print(str(percent * 100) + "%", geno)
+outputTuples.sort(reverse=True)
+
+for percent, geno, _ in outputTuples:
+    print(str(percent * 100) + "%", geno, sep="\t")
