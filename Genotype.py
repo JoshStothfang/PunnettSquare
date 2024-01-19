@@ -1,7 +1,7 @@
 class Genotype:
-    def __init__(self, input):
-        self.input = input
-        self.alleles = list(input)
+    def __init__(self, genotype):
+        self.genotype = genotype
+        self.alleles = list(genotype)
         self.couplings = self.generateCouplings(self.alleles)
     
     def generateCouplings(self, alleles):
