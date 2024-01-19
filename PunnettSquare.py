@@ -13,9 +13,9 @@ def main():
 
     children = []
 
-    for coupling1 in parent1.alleleCombos:
-        for coupling2 in parent2.alleleCombos:
-            children.append(breed(coupling1, coupling2))
+    for combo1 in parent1.alleleCombos:
+        for combo2 in parent2.alleleCombos:
+            children.append(breed(combo1, combo2))
 
     numericChildren = []
 
@@ -34,11 +34,11 @@ def main():
     for percent, geno, _ in outputTuples:
         print(str(percent * 100) + "%", geno, sep="\t")
 
-def breed(coupling1, coupling2):
+def breed(combo1, combo2):
     child = ""
     for i in range(3):
-        child += coupling1[i]
-        child += coupling2[i]
+        child += combo1[i]
+        child += combo2[i]
     return child
 
 if __name__ == "__main__":
