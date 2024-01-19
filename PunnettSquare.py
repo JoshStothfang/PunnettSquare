@@ -4,12 +4,17 @@ from collections import Counter
 
 def main():
     parent1 = Genotype(sys.argv[1])
-    parent2 = Genotype(sys.argv[2])
+    parent2 = ""
+    
+    if len(sys.argv) == 2:
+        parent2 = parent1
+    else:
+        parent2 = Genotype(sys.argv[2])
 
     children = []
 
-    for coupling1 in parent1.couplings:
-        for coupling2 in parent2.couplings:
+    for coupling1 in parent1.alleleCombos:
+        for coupling2 in parent2.alleleCombos:
             children.append(breed(coupling1, coupling2))
 
     numericChildren = []
