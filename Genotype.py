@@ -2,19 +2,19 @@ class Genotype:
     def __init__(self, genotype):
         self.genotype = genotype
         self.alleles = list(genotype)
-        self.couplings = self.generateCouplings(self.alleles)
+        self.alleleCombos = self.generateAlleleCombos(self.alleles)
     
-    def generateCouplings(self, alleles):
-        couplings = []
+    def generateAlleleCombos(self, alleles):
+        alleleCombos = []
         couplingIndices = ["024", "025", "034", "035", "124", "125", "134", "135"]
 
         for indices in couplingIndices:
             coupling = ""
             for index in indices:
                 coupling += alleles[int(index)]
-            couplings.append(coupling)
+            alleleCombos.append(coupling)
         
-        return couplings
+        return alleleCombos
     
     def __convertPair(inputPair, letter = "X"):
         if inputPair in ["rr", "yy", "ww"]:
