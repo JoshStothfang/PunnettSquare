@@ -17,22 +17,29 @@ def main():
         for combo2 in parent2.alleleCombos:
             children.append(breed(combo1, combo2))
 
-    numericChildren = []
+    newChildren = []
 
     for child in children:
-        numericChildren.append(Genotype.convertToNumeric(child))
-
+        childList = list(child)
+        counter = 0
+        while counter < len(child):
+            if ord(child[counter]) > ord(child[counter + 1]):
+                char1 = child[counter]
+                char2 = child[counter + 1]
+                childList[counter + 1] = char1
+                childList[counter] = char2
+            counter += 2
+        newChildren.append("".join(childList))
+    
     outputTuples = []
 
-    for numericChild in list(Counter(numericChildren)):
-        genotypeChild = Genotype.convertToGenotype(numericChild)
-        percentage = (Counter(numericChildren).get(numericChild))/64
-        outputTuples.append((percentage, genotypeChild, numericChild))
+    for child in Counter(newChildren):
+        outputTuples.append((Counter(newChildren).get(child) / len(children), child))
 
     outputTuples.sort(reverse=True)
 
-    for percent, geno, _ in outputTuples:
-        print(str(percent * 100) + "%", geno, sep="\t")
+    for percent, genotype in outputTuples:
+        print(str(percent * 100) + "%", genotype, sep="\t")
 
 def breed(combo1, combo2):
     child = ""
