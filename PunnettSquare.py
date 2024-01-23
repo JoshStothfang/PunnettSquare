@@ -43,7 +43,7 @@ def main():
 
 def breed(combo1, combo2):
     child = ""
-    for i in range(3):
+    for i in range(len(combo1)):
         child += combo1[i]
         child += combo2[i]
     return child
