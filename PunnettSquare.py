@@ -11,6 +11,10 @@ def main():
     else:
         parent2 = Genotype(sys.argv[2])
 
+    if len(parent1.genotype) != len(parent2.genotype):
+        print("ERROR: Genotypes must be the same length")
+        return
+
     children = []
 
     for combo1 in parent1.alleleCombos:
