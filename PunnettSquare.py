@@ -6,6 +6,7 @@ def main():
     parent1 = Genotype(sys.argv[1])
     parent2 = ""
     
+    # If only one genotype is provided, it is assigned to both parent1 and parent2.
     if len(sys.argv) == 2:
         parent2 = parent1
     else:
