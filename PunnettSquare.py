@@ -25,25 +25,11 @@ def main():
     for combo1 in parent1.alleleCombos:
         for combo2 in parent2.alleleCombos:
             children.append(breed(combo1, combo2))
-
-    newChildren = []
-
-    for child in children:
-        childList = list(child)
-        counter = 0
-        while counter < len(child):
-            if ord(child[counter]) > ord(child[counter + 1]):
-                char1 = child[counter]
-                char2 = child[counter + 1]
-                childList[counter + 1] = char1
-                childList[counter] = char2
-            counter += 2
-        newChildren.append("".join(childList))
     
     outputTuples = []
 
-    for child in Counter(newChildren):
-        outputTuples.append((Counter(newChildren).get(child) / len(children), child))
+    for child in Counter(children):
+        outputTuples.append((Counter(children).get(child) / len(children), child))
 
     outputTuples.sort(reverse=True)
 
@@ -53,8 +39,12 @@ def main():
 def breed(combo1, combo2):
     child = ""
     for i in range(len(combo1)):
-        child += combo1[i]
-        child += combo2[i]
+        if ord(combo1[i]) > ord(combo2[i]):
+            child += combo2[i]
+            child += combo1[i]
+        else:
+            child += combo1[i]
+            child += combo2[i]
     return child
 
 if __name__ == "__main__":
