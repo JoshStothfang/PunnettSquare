@@ -3,8 +3,7 @@ from copy import deepcopy
 class Genotype:
     def __init__(self, genotype):
         self.genotype = genotype
-        self.alleles = list(genotype)
-        self.alleleCombos = self.generateAlleleCombos(self.alleles)
+        self.alleleCombos = self.generateAlleleCombos(list(genotype))
     
     def generateAlleleCombos(self, alleles):
         countdown = len(alleles) - 1
