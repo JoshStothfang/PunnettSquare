@@ -3,10 +3,10 @@ from copy import deepcopy
 class Genotype:
     def __init__(self, genotype):
         self.genotype = genotype
-        self.alleleCombos = self.generateAlleleCombos(list(genotype))
+        self.alleleCombos = self.alleleCombosFactory(list(genotype))
     
     # Generates allele combos for axis of punnett square.
-    def generateAlleleCombos(self, alleles):
+    def alleleCombosFactory(self, alleles):
         countdown = len(alleles) - 1
         alleleCombos = [[alleles[countdown]]]
         countdown -= 1
