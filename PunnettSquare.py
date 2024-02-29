@@ -33,8 +33,8 @@ def main():
 
     output.sort(reverse=True)
 
-    for percent, genotype in output:
-        print(str(percent * 100) + "%", genotype, sep="\t")
+    for probability, genotype in output:
+        print(str(probability * 100) + "%", genotype, sep="\t")
 
 def breed(combo1, combo2):
     child = ""
