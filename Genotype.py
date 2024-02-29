@@ -5,6 +5,7 @@ class Genotype:
         self.genotype = genotype
         self.alleleCombos = self.generateAlleleCombos(list(genotype))
     
+    # Generates allele combos for axis of punnett square.
     def generateAlleleCombos(self, alleles):
         countdown = len(alleles) - 1
         alleleCombos = [[alleles[countdown]]]

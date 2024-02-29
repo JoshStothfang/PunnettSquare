@@ -39,6 +39,7 @@ def main():
 def breed(combo1, combo2):
     child = ""
     for i in range(len(combo1)):
+        # Allele character with lower Unicode value is put first in allele pairing. This ensures uppercase letters are first.
         if ord(combo1[i]) > ord(combo2[i]):
             child += combo2[i]
             child += combo1[i]
